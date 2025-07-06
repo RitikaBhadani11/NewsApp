@@ -35,6 +35,8 @@ export class News extends Component {
 
   // Fetch the news articles
   async updateNews() {
+    const apiKey = process.env.REACT_APP_NEWS_API_KEY; // Access the API key from environment variables
+
     this.setState({ loading: true });
     const url = `https://newsapi.org/v2/top-headlines?q=${this.props.country}&category=${this.props.category}&apiKey=9b5b7f1fe5f24527a0f6644c7c45cd07&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     let data = await fetch(url);
